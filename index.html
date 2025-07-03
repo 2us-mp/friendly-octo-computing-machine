@@ -1,0 +1,82 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>2+ Movie Productions Beta</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #111;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        .container {
+            background: #222;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px #000;
+            width: 90%;
+            max-width: 400px;
+            text-align: center;
+        }
+        input {
+            margin: 10px 0;
+            padding: 10px;
+            width: 90%;
+            border: none;
+            border-radius: 5px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #1e90ff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .hidden {
+            display: none;
+        }
+        a {
+            color: #1e90ff;
+            word-break: break-word;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="login-box">
+        <h2>Enter Beta Access</h2>
+        <input type="email" id="email" placeholder="Email" required><br>
+        <input type="password" id="password" placeholder="Password" required><br>
+        <button onclick="checkAccess()">Continue</button>
+        <p id="error" style="color: red; display: none;">Access Denied. Try again.</p>
+    </div>
+
+    <div class="container hidden" id="success-box">
+        <h2>Hello “beta”</h2>
+        <p>See the future chat bot of 2+ Movie Productions.</p>
+        <p>To continue, reset this website and verify you are human.</p>
+        <p>After doing that, press this:</p>
+        <a href="https://authenticate.2movie-productions.com" target="_blank">https://authenticate.2movie-productions.com</a>
+    </div>
+
+    <script>
+        function checkAccess() {
+            const email = document.getElementById('email').value.trim();
+            const password = document.getElementById('password').value;
+
+            if (email === 'Office@Charmersbiz.org' && password === 'Jameson911') {
+                document.getElementById('login-box').classList.add('hidden');
+                document.getElementById('success-box').classList.remove('hidden');
+            } else {
+                document.getElementById('error').style.display = 'block';
+            }
+        }
+    </script>
+</body>
+</html>
